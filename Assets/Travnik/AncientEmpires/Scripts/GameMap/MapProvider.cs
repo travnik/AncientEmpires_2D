@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Travnik.AncientEmpires;
 using UnityEngine;
+using Zenject;
 
 namespace Travnik.AncientEmpires
 {
@@ -28,7 +29,8 @@ namespace Travnik.AncientEmpires
             {
                 for (int j = 0; j < SizeY; j++)
                 {
-                    var cell = _mapCellFactory.Create();
+                    var cell = _mapCellFactory.Create(MapCellType.Ground);
+                    cell.transform.position = new Vector3(i, j, 0);
                     cell.ArrayPosition = new Vector2Int(i, j);
                     _mapCells[i, j] = cell;
                     //TODO

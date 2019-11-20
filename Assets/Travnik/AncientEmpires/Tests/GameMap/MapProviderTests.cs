@@ -15,8 +15,14 @@ public class MapProviderTests : ZenjectUnitTestFixture
 
         Container.Bind<MapProvider>().To<MapProvider>().AsSingle();
         Container.Bind<MapCell>().FromInstance(new MapCell()).AsTransient();
-        Container.BindFactory<MapCell, MapCellFactory>().FromFactory<CustomMapCellFactory>();
+        Container.BindFactory<MapCellType, MapCell, MapCellFactory>().FromMethod(CreateMapCell);
     }
+
+    private MapCell CreateMapCell(DiContainer _, MapCellType type)
+    {
+        return Container.InstantiateComponentOnNewGameObject<MapCell>();
+    }
+
     [Test]
     public void Load()
     {
