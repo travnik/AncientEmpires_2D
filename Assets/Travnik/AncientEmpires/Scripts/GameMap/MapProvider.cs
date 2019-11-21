@@ -1,15 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Travnik.AncientEmpires;
 using UnityEngine;
-using Zenject;
 
 namespace Travnik.AncientEmpires
 {
-    public class MapProvider
+    public interface IMapProvider
+    {
+        int SizeX { get; }
+        int SizeY { get; }
+        void Load();
+        IMapCell Get(int x, int y);
+        bool IsValid(int x, int y);
+    }
+
+    public class MapProvider : IMapProvider
     {
         private readonly MapCellFactory _mapCellFactory;
 
@@ -25,11 +28,12 @@ namespace Travnik.AncientEmpires
 
         public void Load()
         {
-            for (int i = 0; i < SizeX; i++)
+            for (var i = 0; i < SizeX; i++)
             {
-                for (int j = 0; j < SizeY; j++)
+                for (var j = 0; j < SizeY; j++)
                 {
                     var cell = _mapCellFactory.Create(MapCellType.Ground);
+                    //cell.transform.parent = this;
                     cell.transform.position = new Vector3(i, j, 0);
                     cell.ArrayPosition = new Vector2Int(i, j);
                     _mapCells[i, j] = cell;

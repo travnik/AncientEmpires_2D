@@ -8,5 +8,6 @@ namespace Travnik.AncientEmpires
 {
     public interface ISelect
     {
+        IMapCell MapCell { get; }
     }
 }

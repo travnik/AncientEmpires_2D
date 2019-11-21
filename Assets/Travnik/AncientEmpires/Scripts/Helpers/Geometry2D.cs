@@ -7,33 +7,40 @@ using UnityEngine;
 
 namespace Travnik.AncientEmpires
 {
-    public class Geometry2D
+    public interface IGeometry
     {
-        public const float Scale = 2f;
-        public const float Bias = 0.8f;
+        Vector3 PointFromGrid(Vector2Int gridPoint);
+        Vector2Int GridFromPoint(Vector3 point);
+        Vector3 PointFromGrid(int x, int y);
+    }
 
+    public class Geometry2D : IGeometry
+    {
         public Vector3 PointFromGrid(Vector2Int gridPoint)
         {
-            float x = Scale * gridPoint.x;
-            float z = Scale * gridPoint.y;
-            return new Vector3(x, 0, z);
+            return PointFromGrid(gridPoint.x, gridPoint.y);
         }
 
-        public Vector2Int GridPoint(int col, int row)
+        public Vector3 PointFromGrid(int x, int y)
         {
-            return new Vector2Int(col, row);
+            return new Vector3(x, y, 0);
         }
+
+        //public Vector2Int GridPoint(int col, int row)
+        //{
+        //    return new Vector2Int(col, row);
+        //}
 
         public Vector2Int GridFromPoint(Vector3 point)
         {
             int col = CalcCoord(point.x);
-            int row = CalcCoord(point.z);
+            int row = CalcCoord(point.y);
             return new Vector2Int(col, row);
         }
 
-        public int CalcCoord(float coord)
+        private int CalcCoord(float coord)
         {
-            return Mathf.FloorToInt((Bias + coord) / Scale);
+            return Mathf.FloorToInt(coord);
         }
     }
 

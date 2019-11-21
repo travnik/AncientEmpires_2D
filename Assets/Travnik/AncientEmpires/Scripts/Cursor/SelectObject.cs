@@ -7,7 +7,8 @@ using Travnik.AncientEmpires;
 
 namespace Travnik.AncientEmpires
 {
-    public class SelectUnit : ISelect
+    public class SelectObject : ISelect
     {
+        public IMapCell MapCell { get; set; }
     }
 }

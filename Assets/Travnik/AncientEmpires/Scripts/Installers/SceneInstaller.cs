@@ -18,7 +18,8 @@ namespace Travnik.AncientEmpires
             Container.BindInstance(Camera).AsSingle();
 
             //Container.BindInstance(TestPlayer).AsSingle();
-            //Container.Bind<IObjectSelector>().To<Raycast2DSelector>().AsSingle();
+            Container.Bind<IGeometry>().To<Geometry2D>().AsSingle();
+            Container.Bind<IObjectSelector>().To<Raycast2DSelector>().AsSingle();
 
             //Container.Bind<MapFactory>().AsSingle();
             //Container.Bind<UnityEngine.Object>().FromInstance(GroundPrefab).WhenInjectedInto<MapFactory>();

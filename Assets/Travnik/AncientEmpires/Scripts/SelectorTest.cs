@@ -17,9 +17,9 @@ public class SelectorTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var gameObject = new GameObject("test").AddComponent<BoxCollider>();
-        Debug.DrawRay(transform.position, gameObject.transform.position,
-            Color.red);
+        //var gameObject = new GameObject("test").AddComponent<BoxCollider>();
+        //Debug.DrawRay(transform.position, gameObject.transform.position,
+        //    Color.red);
     }
 
     // Update is called once per frame
