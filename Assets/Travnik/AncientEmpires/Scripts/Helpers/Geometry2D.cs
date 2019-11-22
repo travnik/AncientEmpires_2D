@@ -17,6 +17,7 @@ namespace Travnik.AncientEmpires
     public class Geometry2D : IGeometry
     {
         public const float Bias = 0.5f;
+        public const int DirectionY = -1;
 
         public Vector3 PointFromGrid(Vector2Int gridPoint)
         {
@@ -25,7 +26,7 @@ namespace Travnik.AncientEmpires
 
         public Vector3 PointFromGrid(int x, int y)
         {
-            return new Vector3(x, y, 0);
+            return new Vector3(x, y * DirectionY, 0);
         }
 
         //public Vector2Int GridPoint(int col, int row)
@@ -36,7 +37,7 @@ namespace Travnik.AncientEmpires
         public Vector2Int GridFromPoint(Vector3 point)
         {
             int col = CalcCoord(point.x);
-            int row = CalcCoord(point.y);
+            int row = CalcCoord(point.y * DirectionY);
             return new Vector2Int(col, row);
         }
 
