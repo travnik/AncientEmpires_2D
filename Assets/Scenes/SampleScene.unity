@@ -259,6 +259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1bdcf0a5bd7ff4ab5c4e9b7aad67f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _selectCursorPrefab: {fileID: 1321670531401773814, guid: bbad0f8f152ad704c8280ca47ac9f084,
+    type: 3}
 --- !u!1 &1948750413
 GameObject:
   m_ObjectHideFlags: 0

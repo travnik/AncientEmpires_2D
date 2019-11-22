@@ -14,6 +14,6 @@ namespace Travnik.AncientEmpires
     {
         public int Cost { get; private set; }
         public Vector2Int ArrayPosition { get; set; }
-        public Vector3 WorldPosition { get; set; }
+        public Vector3 WorldPosition => transform.position;
     }
 }
