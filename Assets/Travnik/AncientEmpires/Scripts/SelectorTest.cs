@@ -28,6 +28,6 @@ public class SelectorTest : MonoBehaviour
         var pos = Input.mousePosition;
         Debug.Log("mouse pos " + pos);
         var result = _selector.Select(pos);
-        Debug.Log("result=" + result);
+        Debug.Log("result=" + result.MapCell);
     }
 }

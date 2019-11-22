@@ -6,10 +6,10 @@ using Zenject;
 
 public class GameManager : MonoBehaviour
 {
-    private MapProvider _mapProvider;
+    private IMapProvider _mapProvider;
 
     [Inject]
-    public void Constructor(MapProvider mapProvider)
+    public void Constructor(IMapProvider mapProvider)
     {
         _mapProvider = mapProvider;
     }

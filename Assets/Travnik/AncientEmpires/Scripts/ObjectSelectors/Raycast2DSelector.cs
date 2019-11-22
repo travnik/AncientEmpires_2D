@@ -22,7 +22,9 @@ namespace Travnik.AncientEmpires
         {
             var select = new SelectObject();
             var screenToWorldPoint = Camera.main.ScreenToWorldPoint(position);
+            Debug.Log("screenToWorldPoint=" + screenToWorldPoint);
             var point = _geometry.GridFromPoint(screenToWorldPoint);
+            Debug.Log("point=" + point);
             if (_mapProvider.IsValid(point.x, point.y))
             {
                 select.MapCell = _mapProvider.Get(point.x, point.y);

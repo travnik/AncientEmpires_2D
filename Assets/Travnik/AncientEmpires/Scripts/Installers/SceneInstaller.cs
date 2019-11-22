@@ -1,3 +1,4 @@
+using Assets.Travnik.AncientEmpires.Scripts.Installers;
 using UnityEngine;
 using Zenject;
 
@@ -6,23 +7,20 @@ namespace Travnik.AncientEmpires
     public class SceneInstaller : MonoInstaller<SceneInstaller>
     {
         public Camera Camera;
+        public MapCellConfigurator MapCellConfigurator = new MapCellConfigurator();
 
         public override void InstallBindings()
         {
-            //Container.BindInstance(GroundPrefab).AsSingle();
-                //<UnityEngine.Object>().WithId(MapCellType.Ground).FromComponentInNewPrefab(GroundPrefab).AsSingle();
-            //Container.Bind<MapProvider>().AsSingle();
-            //Container.Bind<MapCell>().FromComponentInNewPrefab(GroundPrefab).AsTransient();
-           // Container.BindFactory<MapCell, MapCellFactory>().FromComponentInNewPrefab(GroundPrefab);//.FromFactory<CustomMapCellFactory>();
-
             Container.BindInstance(Camera).AsSingle();
-
-            //Container.BindInstance(TestPlayer).AsSingle();
             Container.Bind<IGeometry>().To<Geometry2D>().AsSingle();
             Container.Bind<IObjectSelector>().To<Raycast2DSelector>().AsSingle();
+            InstallMapBindings();
+        }
 
-            //Container.Bind<MapFactory>().AsSingle();
-            //Container.Bind<UnityEngine.Object>().FromInstance(GroundPrefab).WhenInjectedInto<MapFactory>();
+        private void InstallMapBindings()
+        {
+            Container.Bind<IMapProvider>().To<MapProvider>().AsSingle();
+            Container.BindFactory<MapCellType, MapCell, MapCellFactory>().FromMethod(MapCellConfigurator.CreateMapCellMethodFactory);
         }
     }
 }

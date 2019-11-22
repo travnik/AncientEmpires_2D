@@ -16,6 +16,8 @@ namespace Travnik.AncientEmpires
 
     public class Geometry2D : IGeometry
     {
+        public const float Bias = 0.5f;
+
         public Vector3 PointFromGrid(Vector2Int gridPoint)
         {
             return PointFromGrid(gridPoint.x, gridPoint.y);
@@ -40,7 +42,7 @@ namespace Travnik.AncientEmpires
 
         private int CalcCoord(float coord)
         {
-            return Mathf.FloorToInt(coord);
+            return Mathf.FloorToInt(Bias + coord);
         }
     }
 
