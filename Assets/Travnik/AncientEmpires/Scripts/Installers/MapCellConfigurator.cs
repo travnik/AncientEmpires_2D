@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.Travnik.AncientEmpires.Scripts.Installers.Config;
 using UnityEngine;
 using Zenject;
 
@@ -7,7 +8,7 @@ namespace Travnik.AncientEmpires
     [Serializable]
     public class MapCellConfigurator
     {
-        public GameObject[] GroundPrefabs;
+        public MapCellProfile GroundMapCellProfile;
         public GameObject GameManager;
 
         public MapCell CreateMapCellMethodFactory(DiContainer di, MapCellType type)
@@ -17,10 +18,9 @@ namespace Travnik.AncientEmpires
             return cell;
         }
 
-        public GameObject GetPrefab()
+        private GameObject GetPrefab()
         {
-            int randomIndex = UnityEngine.Random.Range(0, GroundPrefabs.Length);
-            return GroundPrefabs[randomIndex];
+            return GroundMapCellProfile.GetRandomPrefab();
         }
     }
 }
