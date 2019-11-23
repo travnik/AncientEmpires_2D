@@ -1,15 +1,13 @@
-﻿using Travnik.AncientEmpires;
+﻿using System;
+using Travnik.AncientEmpires;
 using UnityEngine;
 
-namespace Assets.Travnik.AncientEmpires.Scripts.Installers.Config
+namespace Travnik.AncientEmpires
 {
     [CreateAssetMenu(menuName = "MapCells/Profile")]
     public class MapCellProfile : ScriptableObject
     {
-        public string Name;
-        public int Defense;
-        public int CostMove;
-        public MapCellType MapCellType;
+        public MapCellInfo MapCellInfo = new MapCellInfo();
         public GameObject[] Prefabs;
 
         public GameObject GetRandomPrefab()
@@ -17,5 +15,14 @@ namespace Assets.Travnik.AncientEmpires.Scripts.Installers.Config
             var randomIndex = UnityEngine.Random.Range(0, Prefabs.Length);
             return Prefabs[randomIndex];
         }
+    }
+
+    [Serializable]
+    public class MapCellInfo
+    {
+        public string Name;
+        public int Defense;
+        public int CostMove;
+        public MapCellType MapCellType;
     }
 }

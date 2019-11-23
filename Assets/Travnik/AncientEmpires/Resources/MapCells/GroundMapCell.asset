@@ -12,8 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c43efad58ebd6b48a4dec12de0a2b03, type: 3}
   m_Name: GroundMapCell
   m_EditorClassIdentifier: 
-  Name: "\u0417\u0435\u043C\u043B\u044F"
-  Defense: 5
-  CostMove: 1
-  MapCellType: 0
-  Prefabs: {fileID: 0}
+  MapCellInfo:
+    Name: "\u0417\u0435\u043C\u043B\u044F"
+    Defense: 5
+    CostMove: 1
+    MapCellType: 0
+  Prefabs:
+  - {fileID: 2318315075786523595, guid: f11783020943e7f4cab735148e61efb3, type: 3}
+  - {fileID: 4425779305640470403, guid: 2dad5bc42f5efbf438b2ebb1bebe3c0f, type: 3}
+  - {fileID: 5957113962366314381, guid: b4d1737afc8861b439753acdbfd3b60d, type: 3}
+  - {fileID: 3424213221466047808, guid: b895b6f7e41cc2f408d44c3ed5756de0, type: 3}
+  - {fileID: 5103835510892896970, guid: d5748eaffb8ae404083f79b356969095, type: 3}
+  - {fileID: 3126660188717132348, guid: 9b159bb1680c6174cb45378a03437e7f, type: 3}
+  - {fileID: 4684382239498276532, guid: 30b6e394d00be094688ee26ba1ef754c, type: 3}

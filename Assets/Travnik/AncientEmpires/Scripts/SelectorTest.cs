@@ -10,11 +10,13 @@ public class SelectorTest : MonoBehaviour
     private GameObject _selectCursor;
     private IObjectSelector _selector;
     private ISelect _currentSelect;
+    private IconPanelPresentor _iconPanelPresentor;
 
     [Inject]
-    public void Constructor(IObjectSelector selector)
+    public void Constructor(IObjectSelector selector, IconPanelPresentor iconPanelPresentor)
     {
         _selector = selector;
+        _iconPanelPresentor = iconPanelPresentor;
     }
 
     private void Awake()
@@ -51,10 +53,12 @@ public class SelectorTest : MonoBehaviour
             var pos = new Vector3(_currentSelect.MapCell.WorldPosition.x, _currentSelect.MapCell.WorldPosition.y, -5);
             Debug.Log("ongui=" + pos);
             _selectCursor.transform.position = pos;
+            _iconPanelPresentor.Present(_currentSelect.MapCell);
         }
         else
         {
             _selectCursor.SetActive(false);
+            _iconPanelPresentor.Clear();
         }
 
     }
