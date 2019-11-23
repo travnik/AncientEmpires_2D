@@ -1,10 +1,8 @@
 ﻿using System;
-using System.ComponentModel;
-using Travnik.AncientEmpires;
 using UnityEngine;
 using Zenject;
 
-namespace Assets.Travnik.AncientEmpires.Scripts.Installers
+namespace Travnik.AncientEmpires
 {
     [Serializable]
     public class MapCellConfigurator

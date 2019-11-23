@@ -1,4 +1,3 @@
-using Assets.Travnik.AncientEmpires.Scripts.Installers;
 using UnityEngine;
 using Zenject;
 
