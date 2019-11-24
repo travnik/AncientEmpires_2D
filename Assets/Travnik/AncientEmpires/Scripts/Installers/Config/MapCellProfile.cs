@@ -1,5 +1,4 @@
 ﻿using System;
-using Travnik.AncientEmpires;
 using UnityEngine;
 
 namespace Travnik.AncientEmpires
