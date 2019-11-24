@@ -5,8 +5,6 @@ namespace Travnik.AncientEmpires
 {
     public class CursorController : MonoBehaviour
     {
-        [SerializeField] private GameObject _selectCursorPrefab;
-        private GameObject _selectCursor;
         private IObjectSelector _selector;
         private ISelect _currentSelect;
         private IconPanelPresentor _iconPanelPresentor;
@@ -44,7 +42,6 @@ namespace Travnik.AncientEmpires
                 _cursorPresentor.Hide();
                 _iconPanelPresentor.Clear();
             }
-
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Tests
         [Test]
         public void Select_FoundObject()
         {
-            var objectSelector = Container.Instantiate<Raycast2DSelector>();
+            var objectSelector = Container.Instantiate<ObjectSelector>();
             var position = new Vector3(530, 276, 0);
 
             //var gameObject = Container.Instantiate<GameObject>();

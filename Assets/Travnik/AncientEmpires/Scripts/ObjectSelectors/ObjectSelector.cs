@@ -4,31 +4,37 @@ using Zenject;
 
 namespace Travnik.AncientEmpires
 {
-    public class Raycast2DSelector : IObjectSelector
+    public class ObjectSelector : IObjectSelector
     {
         private Camera _camera;
         private IMapProvider _mapProvider;
         private IGeometry _geometry;
+        private IUnitProvider _unitProvider;
 
         [Inject]
-        public void Constructor(Camera camera, IMapProvider mapProvider, IGeometry geometry)
+        public void Constructor(Camera camera, 
+            IMapProvider mapProvider, 
+            IGeometry geometry, 
+            IUnitProvider unitProvider)
         {
             _camera = camera;
             _mapProvider = mapProvider;
             _geometry = geometry;
+            _unitProvider = unitProvider;
         }
 
         public ISelect Select(Vector3 position)
         {
-            var select = new SelectObject();
             var screenToWorldPoint = Camera.main.ScreenToWorldPoint(position);
-            Debug.Log("screenToWorldPoint=" + screenToWorldPoint);
             var point = _geometry.GridFromPoint(screenToWorldPoint);
-            Debug.Log("point=" + point);
+
+            var select = new SelectObject();
             if (_mapProvider.IsValid(point.x, point.y))
             {
                 select.MapCell = _mapProvider.Get(point.x, point.y);
             }
+
+            select.Unit = _unitProvider.Get(point.x, point.y);
 
             return select;
 

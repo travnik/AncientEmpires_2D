@@ -19,7 +19,7 @@ namespace Travnik.AncientEmpires
             Container.BindInstance(CursorPresentor).AsSingle();
 
             Container.Bind<IGeometry>().To<Geometry2D>().AsSingle();
-            Container.Bind<IObjectSelector>().To<Raycast2DSelector>().AsSingle();
+            Container.Bind<IObjectSelector>().To<ObjectSelector>().AsSingle();
 
             InstallMapBindings();
             InstallUnitBindings();

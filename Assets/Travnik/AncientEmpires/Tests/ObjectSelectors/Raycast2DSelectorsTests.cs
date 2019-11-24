@@ -25,7 +25,7 @@ public class Raycast2DSelectorsTests : ZenjectUnitTestFixture
         var stubMapProvider = new Mock<IMapProvider>();
         stubMapProvider.Setup(i => i.IsValid(It.IsAny<int>(), It.IsAny<int>())).Returns(() => false);
         Container.Bind<IMapProvider>().FromInstance(stubMapProvider.Object).AsSingle();
-        var objectSelector = Container.Instantiate<Raycast2DSelector>();
+        var objectSelector = Container.Instantiate<ObjectSelector>();
         var position = new Vector3(0, 0, 0);
         var result = objectSelector.Select(position);
         Assert.Null(result.MapCell);
@@ -45,7 +45,7 @@ public class Raycast2DSelectorsTests : ZenjectUnitTestFixture
         var camera = Object.FindObjectOfType<Camera>();
         var worldToScreenPoint = camera.WorldToScreenPoint(geometry.PointFromGrid(0, 0));
 
-        var objectSelector = Container.Instantiate<Raycast2DSelector>();
+        var objectSelector = Container.Instantiate<ObjectSelector>();
 
         var result = objectSelector.Select(worldToScreenPoint);
         Assert.NotNull(result.MapCell);
