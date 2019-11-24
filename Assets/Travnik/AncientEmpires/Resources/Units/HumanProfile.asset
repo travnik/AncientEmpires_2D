@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3087d7ba8626347a8c3e4bfeba7dac, type: 3}
   m_Name: HumanProfile
   m_EditorClassIdentifier: 
-  Name: Warrior
-  Description: 
-  Cost: 150
-  CountMove: 5
-  CostUnitMoves:
-  - CellType: 0
-    Cost: 1
+  Prefab: {fileID: 1033118886809025028, guid: 5c34842d394f36847a99934e10af9486, type: 3}
+  UnitInfo:
+    Name: "\u0420\u044B\u0446\u0430\u0440\u044C"
+    Description: "\u0413\u043B\u0430\u0432\u043D\u044B\u0439 \u0447\u0443\u0432\u0430\u043A"
+    Cost: 400
+    CountMove: 5
+    CostUnitMoves: []

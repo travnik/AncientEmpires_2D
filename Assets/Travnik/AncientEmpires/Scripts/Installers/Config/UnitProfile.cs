@@ -6,7 +6,14 @@ namespace Travnik.AncientEmpires
     [CreateAssetMenu(menuName = "Units/Profile")]
     public class UnitProfile : ScriptableObject
     {
-        public GameObject UnitView;
+        public GameObject Prefab;
+        public UnitInfo UnitInfo = new UnitInfo();
+    }
+
+    [Serializable]
+    public class UnitInfo
+    {
+        public UnitType Type;
         public string Name = "Warrior";
         public string Description;
         public int Cost = 150;

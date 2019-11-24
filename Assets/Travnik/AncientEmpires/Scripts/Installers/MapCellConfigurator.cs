@@ -14,7 +14,6 @@ namespace Travnik.AncientEmpires
         {
             var cell = di.InstantiatePrefabForComponent<MapCell>(GetPrefab(), GameManager.transform);
             cell.MapCellInfo = GroundMapCellProfile.MapCellInfo;
-            //cell.gameObject.AddComponent<BoxCollider>();
             return cell;
         }
 

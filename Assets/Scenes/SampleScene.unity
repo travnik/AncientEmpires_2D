@@ -671,6 +671,10 @@ MonoBehaviour:
       type: 2}
     GameManager: {fileID: 1423369907}
   IconPanelPresentor: {fileID: 1209415413}
+  UnitsConfiguration:
+    UnitProfiles:
+    - {fileID: 11400000, guid: 9272b96ad6d328e408e180900fd155a0, type: 2}
+    GameManager: {fileID: 1423369907}
 --- !u!1001 &6258531369049357854
 PrefabInstance:
   m_ObjectHideFlags: 0
