@@ -32,9 +32,7 @@ namespace Travnik.AncientEmpires
         {
             if (_currentSelect?.MapCell != null)
             {
-                var pos = new Vector3(_currentSelect.MapCell.WorldPosition.x, _currentSelect.MapCell.WorldPosition.y,
-                    -5);
-                _cursorPresentor.Show(pos);
+                _cursorPresentor.Show(_currentSelect.MapCell.WorldPosition);
                 _iconPanelPresentor.Present(_currentSelect.MapCell);
             }
             else
