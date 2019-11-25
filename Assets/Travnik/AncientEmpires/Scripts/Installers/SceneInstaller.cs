@@ -35,7 +35,6 @@ namespace Travnik.AncientEmpires
 
         private void InstallUnitBindings()
         {
-            Container.Bind<IUnitsContainer>().To<UnitsContainer>().AsTransient();
             Container.Bind<IUnitProvider>().To<UnitProvider>().AsSingle();
             Container.BindFactory<PlayerTeam, UnitType, BaseUnit, UnitFactory>().FromMethod(UnitsConfiguration.CreateUnitMethodFactory);
         }

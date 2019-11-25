@@ -12,10 +12,10 @@ namespace Travnik.AncientEmpires
             _geometry = geometry;
         }
 
-        public IBaseUnit Create(PlayerTeam team, UnitType type, int x, int y)
+        public IBaseUnit Create(PlayerTeam team, UnitType type, Vector2Int point)
         {
             var unit = base.Create(team, type);
-            unit.ArrayPosition = new Vector2Int(x, y);
+            unit.ArrayPosition = point;
             unit.transform.position = _geometry.PointFromGrid(unit.ArrayPosition);
             return unit;
         }

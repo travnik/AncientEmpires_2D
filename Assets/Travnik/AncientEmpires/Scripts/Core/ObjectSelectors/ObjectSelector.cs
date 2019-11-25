@@ -34,7 +34,7 @@ namespace Travnik.AncientEmpires
                 select.MapCell = _mapProvider.Get(point.x, point.y);
             }
 
-            select.Unit = _unitProvider.Get(point.x, point.y);
+            select.Unit = _unitProvider.Get(point);
 
             return select;
 
