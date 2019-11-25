@@ -7,6 +7,7 @@ namespace Travnik.AncientEmpires
     {
         public Camera Camera;
         public IconPanelPresentor IconPanelPresentor;
+        public HeaderPanelPresentor HeaderPanelPresentor;
         public CursorPresentor CursorPresentor;
 
         public MapCellConfigurator MapCellConfigurator = new MapCellConfigurator();
@@ -16,6 +17,7 @@ namespace Travnik.AncientEmpires
         {
             Container.BindInstance(Camera).AsSingle();
             Container.BindInstance(IconPanelPresentor).AsSingle();
+            Container.BindInstance(HeaderPanelPresentor).AsSingle();
             Container.BindInstance(CursorPresentor).AsSingle();
 
             Container.Bind<IGeometry>().To<Geometry2D>().AsSingle();

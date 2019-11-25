@@ -8,14 +8,18 @@ namespace Travnik.AncientEmpires
         private IObjectSelector _selector;
         private ISelect _currentSelect;
         private IconPanelPresentor _iconPanelPresentor;
+        private HeaderPanelPresentor _headerPanelPresentor;
         private CursorPresentor _cursorPresentor;
 
         [Inject]
-        public void Constructor(IObjectSelector selector, IconPanelPresentor iconPanelPresentor,
+        public void Constructor(IObjectSelector selector, 
+            IconPanelPresentor iconPanelPresentor,
+            HeaderPanelPresentor headerPanelPresentor,
             CursorPresentor cursorPresentor)
         {
             _selector = selector;
             _iconPanelPresentor = iconPanelPresentor;
+            _headerPanelPresentor = headerPanelPresentor;
             _cursorPresentor = cursorPresentor;
         }
 
@@ -40,6 +44,8 @@ namespace Travnik.AncientEmpires
                 _cursorPresentor.Hide();
                 _iconPanelPresentor.Clear();
             }
+
+            _headerPanelPresentor.Present(_currentSelect?.Unit);
         }
     }
 }
