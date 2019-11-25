@@ -6,7 +6,7 @@ namespace Travnik.AncientEmpires
     public class SceneInstaller : MonoInstaller<SceneInstaller>
     {
         public Camera Camera;
-        public IconPanelPresentor IconPanelPresentor;
+        public FooterPanelPresentor FooterPanelPresentor;
         public HeaderPanelPresentor HeaderPanelPresentor;
         public CursorPresentor CursorPresentor;
 
@@ -16,7 +16,7 @@ namespace Travnik.AncientEmpires
         public override void InstallBindings()
         {
             Container.BindInstance(Camera).AsSingle();
-            Container.BindInstance(IconPanelPresentor).AsSingle();
+            Container.BindInstance(FooterPanelPresentor).AsSingle();
             Container.BindInstance(HeaderPanelPresentor).AsSingle();
             Container.BindInstance(CursorPresentor).AsSingle();
 
