@@ -2,16 +2,10 @@
 
 namespace Travnik.AncientEmpires
 {
-    public interface IBaseUnit
-    {
-        Vector2Int ArrayPosition { get; }
-        Vector3 WorldPosition { get; }
-        Sprite GetIcon();
-    }
-
-    public class BaseUnit : MonoBehaviour, IBaseUnit
+    public class MapCell : MonoBehaviour, IMapCell
     {
         private SpriteRenderer _spriteRenderer;
+        public MapCellInfo MapCellInfo{ get; set; }
         public Vector2Int ArrayPosition { get; set; }
         public Vector3 WorldPosition => transform.position;
 
