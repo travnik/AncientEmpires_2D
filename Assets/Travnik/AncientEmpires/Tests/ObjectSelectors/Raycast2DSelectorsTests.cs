@@ -24,7 +24,11 @@ public class Raycast2DSelectorsTests : ZenjectUnitTestFixture
     {
         var stubMapProvider = new Mock<IMapProvider>();
         stubMapProvider.Setup(i => i.IsValid(It.IsAny<int>(), It.IsAny<int>())).Returns(() => false);
+        var stubUnitProvider = new Mock<IUnitProvider>();
+        stubUnitProvider.Setup(i => i.Get(It.IsAny<Vector2Int>())).Returns(() => null);
         Container.Bind<IMapProvider>().FromInstance(stubMapProvider.Object).AsSingle();
+        Container.Bind<IUnitProvider>().FromInstance(stubUnitProvider.Object).AsSingle();
+
         var objectSelector = Container.Instantiate<ObjectSelector>();
         var position = new Vector3(0, 0, 0);
         var result = objectSelector.Select(position);
@@ -41,6 +45,9 @@ public class Raycast2DSelectorsTests : ZenjectUnitTestFixture
         stubMapProvider.Setup(i => i.Get(It.IsAny<int>(), It.IsAny<int>())).Returns(() => mapcell);
         stubMapProvider.Setup(i => i.IsValid(It.IsAny<int>(), It.IsAny<int>())).Returns(() => true);
         Container.Bind<IMapProvider>().FromInstance(stubMapProvider.Object).AsSingle();
+        var stubUnitProvider = new Mock<IUnitProvider>();
+        stubUnitProvider.Setup(i => i.Get(It.IsAny<Vector2Int>())).Returns(() => null);
+        Container.Bind<IUnitProvider>().FromInstance(stubUnitProvider.Object).AsSingle();
 
         var camera = Object.FindObjectOfType<Camera>();
         var worldToScreenPoint = camera.WorldToScreenPoint(geometry.PointFromGrid(0, 0));

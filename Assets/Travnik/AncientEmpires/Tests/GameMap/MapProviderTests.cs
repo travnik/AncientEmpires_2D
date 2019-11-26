@@ -13,7 +13,8 @@ public class MapProviderTests : ZenjectUnitTestFixture
         base.Setup();
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
 
-        Container.Bind<MapProvider>().To<MapProvider>().AsSingle();
+        Container.Bind<IMapProvider>().To<MapProvider>().AsSingle();
+        Container.Bind<IGeometry>().To<Geometry2D>().AsSingle();
         Container.Bind<MapCell>().FromInstance(new MapCell()).AsTransient();
         Container.BindFactory<MapCellType, MapCell, MapCellFactory>().FromMethod(CreateMapCell);
     }
@@ -26,7 +27,7 @@ public class MapProviderTests : ZenjectUnitTestFixture
     [Test]
     public void Load()
     {
-        var mapProvider = Container.Resolve<MapProvider>();
+        var mapProvider = Container.Resolve<IMapProvider>();
         mapProvider.Load();
         var cell = mapProvider.Get(4, 2);
         Assert.NotNull(cell);
