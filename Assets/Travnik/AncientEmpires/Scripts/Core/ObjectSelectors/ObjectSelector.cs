@@ -37,32 +37,6 @@ namespace Travnik.AncientEmpires
             select.Unit = _unitProvider.Get(point);
 
             return select;
-
-            //Debug.Log("screenToWorldPoint= " + screenToWorldPoint);
-            //RaycastHit hit = CastFromPosition(position);
-            //Debug.Log("hit " + hit);
-            //if (hit.transform != null)
-            //{
-            //    Debug.Log("select point " + hit.point);
-            //    return new SelectObject();
-            //    //enabled = true;
-            //    //Vector2Int gridPoint = Geometry.GridFromPoint(hit.point);
-
-            //    //_tileHighlight.SetActive(true);
-            //    //var vector3 = Geometry.PointFromGrid(gridPoint);
-            //    //vector3.y = 0.6f;
-            //    //_tileHighlight.transform.position = vector3;
-
-            //    if (Input.GetMouseButtonDown(0))
-            //    {
-            //        //PlayerCharacter playerScript = UnitsController.Instance.GetPlayerAtGrid(gridPoint);
-            //        //SelectPlayer(playerScript);
-            //    }
-
-                
-            //}
-
-            //return null;
         }
 
         private RaycastHit CastFromPosition(Vector3 position)

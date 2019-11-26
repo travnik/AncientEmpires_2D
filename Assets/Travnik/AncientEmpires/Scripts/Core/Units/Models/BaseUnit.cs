@@ -9,7 +9,7 @@ namespace Travnik.AncientEmpires
         private SpriteRenderer _spriteRenderer;
         public Vector2Int ArrayPosition { get; set; }
         public Vector3 WorldPosition => transform.position;
-        public int MovePoint { get; protected set; }
+        public int MovePoint { get; protected set; } = 4;
 
         private void Awake()
         {

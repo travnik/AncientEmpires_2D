@@ -14,7 +14,7 @@ namespace Travnik.AncientEmpires
             gameObject.SetActive(false);
         }
 
-        public void Show(Vector3 position)
+        public void ShowSelect(Vector3 position)
         {
             gameObject.transform.position = position;
             gameObject.SetActive(true);

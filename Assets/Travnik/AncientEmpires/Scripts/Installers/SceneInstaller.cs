@@ -22,6 +22,7 @@ namespace Travnik.AncientEmpires
 
             Container.Bind<IGeometry>().To<Geometry2D>().AsSingle();
             Container.Bind<IObjectSelector>().To<ObjectSelector>().AsSingle();
+            Container.Bind<IUnitMovablePositioner>().To<UnitMovablePositioner>().AsSingle();
 
             InstallMapBindings();
             InstallUnitBindings();

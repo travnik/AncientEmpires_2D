@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Travnik.AncientEmpires
 {
-    public class UnitMovablePositioner
+    public class UnitMovablePositioner : IUnitMovablePositioner
     {
         private readonly IMapProvider _mapProvider;
         private readonly IUnitProvider _unitProvider;
@@ -113,7 +113,7 @@ namespace Travnik.AncientEmpires
             }
         }
 
-        public bool CanUnitMove(IBaseUnit unit, Vector2Int destPos)
+        private bool CanUnitMove(IBaseUnit unit, Vector2Int destPos)
         {
             if (_mapProvider.IsValid(destPos.x, destPos.y))
             {
@@ -129,7 +129,7 @@ namespace Travnik.AncientEmpires
             return unit.ArrayPosition == destUnit.ArrayPosition;
         }
 
-        public int GetMovementPointCost(IBaseUnit unit, Vector2Int destPos)
+        private int GetMovementPointCost(IBaseUnit unit, Vector2Int destPos)
         {
             var tile = _mapProvider.Get(destPos.x, destPos.y);
             var mpCost = tile.MapCellInfo.CostMove;
