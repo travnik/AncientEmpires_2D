@@ -538,6 +538,12 @@ MonoBehaviour:
     UnitProfiles:
     - {fileID: 11400000, guid: 9272b96ad6d328e408e180900fd155a0, type: 2}
     GameManager: {fileID: 1423369907}
+  MarkerMapConfiguration:
+    GameManager: {fileID: 1423369907}
+    MovePrefab: {fileID: 989747677710474563, guid: af80bc3c0366e0342b747276bfbb1623,
+      type: 3}
+    AttackPrefab: {fileID: 8056189197154729993, guid: a05321af7d9010a48a09a698f46db914,
+      type: 3}
 --- !u!224 &2084659110 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7038203167543409899, guid: 3110d31221aee6d449de32a5822afddd,
@@ -614,12 +620,12 @@ PrefabInstance:
     - target: {fileID: 1407949762130524724, guid: 46c42fba71686d244afa12f0e04324a2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -3.6
+      value: -3.600006
       objectReference: {fileID: 0}
     - target: {fileID: 1407949762130524724, guid: 46c42fba71686d244afa12f0e04324a2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2.4
+      value: -2.4000015
       objectReference: {fileID: 0}
     - target: {fileID: 1407949762130524724, guid: 46c42fba71686d244afa12f0e04324a2,
         type: 3}

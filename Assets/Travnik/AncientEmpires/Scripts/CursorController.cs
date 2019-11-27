@@ -10,6 +10,7 @@ namespace Travnik.AncientEmpires
         private HeaderPanelPresentor _headerPanelPresentor;
         private CursorPresentor _cursorPresentor;
         private IUnitMovablePositioner _unitMovablePositioner;
+        private MarkerMapPresentor _markerMapPresentor;
 
         private ISelect _currentSelect;
 
@@ -18,13 +19,15 @@ namespace Travnik.AncientEmpires
             FooterPanelPresentor footerPanelPresentor,
             HeaderPanelPresentor headerPanelPresentor,
             CursorPresentor cursorPresentor,
-            IUnitMovablePositioner unitMovablePositioner)
+            IUnitMovablePositioner unitMovablePositioner,
+            MarkerMapPresentor markerMapPresentor)
         {
             _selector = selector;
             _footerPanelPresentor = footerPanelPresentor;
             _headerPanelPresentor = headerPanelPresentor;
             _cursorPresentor = cursorPresentor;
             _unitMovablePositioner = unitMovablePositioner;
+            _markerMapPresentor = markerMapPresentor;
         }
 
         private void Update()
@@ -38,8 +41,8 @@ namespace Travnik.AncientEmpires
                 Debug.Log("Pressed primary button.");
                 if (_currentSelect.Unit != null)
                 {
-                    var result = _unitMovablePositioner.CreateMovablePositions(_currentSelect.Unit);
-                    Debug.Log("result=" + result);
+                    var steps = _unitMovablePositioner.CreateMovablePositions(_currentSelect.Unit);
+                    _markerMapPresentor.ShowMarker(steps);
                 }
             }
         }

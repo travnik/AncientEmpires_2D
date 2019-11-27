@@ -1,3 +1,5 @@
+using AncientEmpires;
+using Assets.Travnik.AncientEmpires.Scripts.UI.Marker;
 using UnityEngine;
 using Zenject;
 
@@ -12,6 +14,7 @@ namespace Travnik.AncientEmpires
 
         public MapCellConfigurator MapCellConfigurator = new MapCellConfigurator();
         public UnitsConfiguration UnitsConfiguration = new UnitsConfiguration();
+        public MarkerMapConfiguration MarkerMapConfiguration = new MarkerMapConfiguration();
 
         public override void InstallBindings()
         {
@@ -26,6 +29,7 @@ namespace Travnik.AncientEmpires
 
             InstallMapBindings();
             InstallUnitBindings();
+            InstallMarkerMapBindings();
         }
 
         private void InstallMapBindings()
@@ -38,6 +42,12 @@ namespace Travnik.AncientEmpires
         {
             Container.Bind<IUnitProvider>().To<UnitProvider>().AsSingle();
             Container.BindFactory<PlayerTeam, UnitType, BaseUnit, UnitFactory>().FromMethod(UnitsConfiguration.CreateUnitMethodFactory);
+        }
+
+        private void InstallMarkerMapBindings()
+        {
+            Container.Bind<MarkerMapPresentor>().AsSingle();
+            Container.BindFactory<MarkerType, MarkerMap, MarkerMapFactory>().FromMethod(MarkerMapConfiguration.CreateMarkerMapMethodFactory);
         }
     }
 }
